@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Protótipo"
-run/main_scene="uid://cng22li8eyqtj"
+config/name="The Tower"
+run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PauseMenu="*res://pause_menu.tscn"
 
 [display]
 
@@ -33,5 +37,6 @@ ui_touch={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
