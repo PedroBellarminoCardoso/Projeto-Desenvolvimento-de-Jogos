@@ -13,7 +13,7 @@ config_version=5
 config/name="The Tower"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://bivghpk11ey1x"
+config/icon="res://icon.svg"
 
 [autoload]
 

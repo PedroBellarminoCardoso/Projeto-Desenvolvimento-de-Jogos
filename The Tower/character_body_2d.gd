@@ -11,21 +11,28 @@ extends CharacterBody2D
 @export var bounce_cooldown: float = 0.2
 @export var launch_lock_time: float = 0.15
 
+<<<<<<< HEAD
 # SPRITE DE HIT
 @export var hit_texture: Texture2D
 @export var hit_duration: float = 0.1
 
+=======
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 var can_jump: bool = true
 var bounce_timer: float = 0.0
 var launch_timer: float = 0.0
 
+<<<<<<< HEAD
 var normal_texture: Texture2D
 var hit_timer: float = 0.0
 
+=======
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
 
+<<<<<<< HEAD
 func _ready() -> void:
 	normal_texture = sprite.texture
 
@@ -43,6 +50,11 @@ func _physics_process(delta: float) -> void:
 			sprite.texture = normal_texture
 
 	# ======================
+=======
+func _physics_process(delta: float) -> void:
+
+	# ======================
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 	# GRAVIDADE
 	# ======================
 
@@ -52,6 +64,10 @@ func _physics_process(delta: float) -> void:
 		if velocity.y >= 0:
 			can_jump = true
 
+<<<<<<< HEAD
+=======
+		# reduz deslize no chão
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 		velocity.x = move_toward(velocity.x, 0, 1000 * delta)
 
 	# ======================
@@ -65,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	# ANIMAÇÕES
 	# ======================
 
+<<<<<<< HEAD
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x < 0
 
@@ -79,6 +96,21 @@ func _physics_process(delta: float) -> void:
 
 		else:
 			anim.play("idle")
+=======
+	# vira sprite
+	if velocity.x != 0:
+		sprite.flip_h = velocity.x < 0
+
+	# animações
+	if not is_on_floor():
+		anim.play("jump")
+
+	elif abs(velocity.x) > 10:
+		anim.play("run")
+
+	else:
+		anim.play("idle")
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 
 	# ======================
 	# MOVIMENTO
@@ -99,8 +131,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_wall():
 
+<<<<<<< HEAD
 		mostrar_hit()
 
+=======
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 		var normal = get_wall_normal()
 
 		var dir = sign(velocity.x)
@@ -111,6 +146,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = -dir * wall_bounce_x
 		velocity.y = -wall_bounce_y
 
+<<<<<<< HEAD
+=======
+		# deixa mais pesado
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 		velocity *= 0.85
 
 		bounce_timer = bounce_cooldown
@@ -122,16 +161,23 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_ceiling():
 
+<<<<<<< HEAD
 		mostrar_hit()
 
 		velocity.y = ceiling_bounce
 
+=======
+		velocity.y = ceiling_bounce
+
+		# deixa mais pesado
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 		velocity *= 0.85
 
 		bounce_timer = bounce_cooldown
 		return
 
 
+<<<<<<< HEAD
 func mostrar_hit() -> void:
 
 	if hit_texture == null:
@@ -141,6 +187,8 @@ func mostrar_hit() -> void:
 	hit_timer = hit_duration
 
 
+=======
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 func launch(force: Vector2) -> void:
 
 	if not is_on_floor():
@@ -152,4 +200,8 @@ func launch(force: Vector2) -> void:
 	velocity = force * jump_force_multiplier
 	can_jump = false
 
+<<<<<<< HEAD
+=======
+	# evita bounce logo após pular
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 	launch_timer = launch_lock_time

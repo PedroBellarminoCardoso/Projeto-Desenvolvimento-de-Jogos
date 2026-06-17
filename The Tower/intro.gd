@@ -1,12 +1,16 @@
 extends Node2D
 
 func _ready():
+<<<<<<< HEAD
 	$Player.visible = false
 
+=======
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 	# Fade da tela
 	$ColorRect/AnimationPlayer.play("fade_in")
 	await $ColorRect/AnimationPlayer.animation_finished
 
+<<<<<<< HEAD
 	$ColorRect.hide()
 
 	# Começa a animação da porta
@@ -29,3 +33,21 @@ func _on_pink_body_entered(body):
 	if tela:
 		tela.visible = true
 		print("TELA LIGADA")
+=======
+	# Remove a tela preta completamente
+	$ColorRect.hide()
+
+	# Abre a porta
+	$Porta/AnimationPlayer.play("open")
+	await $Porta/AnimationPlayer.animation_finished
+
+	# Toca a animação do player
+	$Player/AnimationPlayer.play("blue_fade_in")
+	await $Player/AnimationPlayer.animation_finished
+
+	# Garante que o player fique totalmente visível
+	$Player.modulate = Color(1, 1, 1, 1)
+
+	# Fecha a porta
+	$Porta/AnimationPlayer.play("close")
+>>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
