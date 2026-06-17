@@ -4,6 +4,7 @@ extends Area2D
 
 
 func _ready() -> void:
+	print("Area2D ready: ", get_path(), " target_camera: ", target_camera)
 	body_entered.connect(_on_body_entered)
 
 

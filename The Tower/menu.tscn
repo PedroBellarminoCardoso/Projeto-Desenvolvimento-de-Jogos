@@ -41,15 +41,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -536.0
-<<<<<<< HEAD
-offset_top = -649.0
-offset_right = -337.0
-offset_bottom = -553.0
-=======
 offset_top = -710.0
 offset_right = -337.0
 offset_bottom = -550.0
->>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
@@ -63,8 +57,6 @@ theme_override_font_sizes/font_size = 30
 text = "Jogar"
 autowrap_trim_flags = 0
 
-<<<<<<< HEAD
-=======
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
@@ -73,7 +65,6 @@ theme_override_font_sizes/font_size = 30
 text = "Opções"
 autowrap_trim_flags = 0
 
->>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1972625158]
 layout_mode = 2
 size_flags_vertical = 6
@@ -138,8 +129,6 @@ horizontal_alignment = 1
 layout_mode = 2
 value = 50.0
 
-<<<<<<< HEAD
-=======
 [node name="GraphicsButton" type="Button" parent="OptionsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
@@ -148,29 +137,19 @@ theme_override_font_sizes/font_size = 20
 text = "Graficos: ALTO"
 autowrap_trim_flags = 0
 
->>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 [node name="BackButton" type="Button" parent="OptionsPanel/VBoxContainer" unique_id=1650693339]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 30
-<<<<<<< HEAD
-text = "Sair do Jogo?"
-=======
 text = "Voltar"
->>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 text_overrun_behavior = 1
 autowrap_mode = 1
 autowrap_trim_flags = 0
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-<<<<<<< HEAD
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="value_changed" from="OptionsPanel/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-=======
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="OptionsPanel/VBoxContainer/GraphicsButton" to="." method="_on_graphics_button_pressed"]
->>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 [connection signal="pressed" from="OptionsPanel/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

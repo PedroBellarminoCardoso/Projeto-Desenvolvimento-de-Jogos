@@ -8,11 +8,7 @@ func _ready():
 	options_menu.hide()
 
 func _on_play_button_pressed():
-<<<<<<< HEAD
 	get_tree().change_scene_to_file("res://Teste.tscn")
-=======
-	get_tree().change_scene_to_file("res://prototipo.tscn")
->>>>>>> 51db95ade9a57f6ee1b64b3b05b3740763da2137
 
 func _on_options_button_pressed():
 	main_menu.hide()

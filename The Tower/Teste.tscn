@@ -19,6 +19,9 @@
 [ext_resource type="Script" uid="uid://bm44luyjox7rk" path="res://pink.gd" id="18_tqd42"]
 [ext_resource type="Texture2D" uid="uid://cug241r3od56a" path="res://Pink jail.png" id="19_msr4x"]
 [ext_resource type="Texture2D" uid="uid://drweoxejn67pb" path="res://Texto do seu parágrafo.png" id="19_tqd42"]
+[ext_resource type="AudioStream" uid="uid://g8dx0b630s6w" path="res://gameplay_music.mp3" id="20_music"]
+[ext_resource type="Texture2D" uid="uid://cynxwq7l3idps" path="res://blue_jump.png" id="21_jump"]
+[ext_resource type="Texture2D" uid="uid://2reyq1n0usn1" path="res://hit.png" id="22_hit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xhl2x"]
 font = ExtResource("1_pk4cg")
@@ -43,6 +46,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tqd42"]
 resource_name = "open"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,16 +54,33 @@ tracks/0/path = NodePath("Door1:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.56666666, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("5_cxega"), ExtResource("6_q4l7r"), ExtResource("5_cxega")]
+"values": [ExtResource("5_cxega"), ExtResource("6_q4l7r")]
+}
+
+[sub_resource type="Animation" id="Animation_close"]
+resource_name = "close"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_q4l7r"), ExtResource("5_cxega")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msr4x"]
 _data = {
-&"RESET": SubResource("Animation_u7ii5"),
-&"open": SubResource("Animation_tqd42")
+"RESET": SubResource("Animation_u7ii5"),
+"close": SubResource("Animation_close"),
+"open": SubResource("Animation_tqd42")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4l7r"]
@@ -85,6 +106,43 @@ resource_name = "blue_fade_in"
 
 [sub_resource type="Animation" id="Animation_adbv4"]
 resource_name = "charge"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_jump")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_cxega"]
 resource_name = "idle"
@@ -101,9 +159,70 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 0, 0, 0, 1, 1, 2, 2, 2, 1, 1, 0, 0, 3, 3, 0, 0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_xhl2x")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_xhl2x"]
 resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_jump")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_266kh"]
 _data = {
@@ -577,8 +696,9 @@ texture = ExtResource("5_cxega")
 libraries/ = SubResource("AnimationLibrary_msr4x")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=970178449]
-position = Vector2(837, -2738)
+position = Vector2(454, 87)
 script = ExtResource("1_l1n5n")
+hit_texture = ExtResource("22_hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1209800434]
 position = Vector2(76.99982, -5.0001206)
@@ -1016,5 +1136,9 @@ position = Vector2(546.5, -3561)
 scale = Vector2(2.9456365, 2.5337834)
 shape = SubResource("RectangleShape2D_msr4x")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_music")
+autoplay = true
+
 [connection signal="vector_created" from="Player/Area2D" to="Player" method="launch"]
-[connection signal="body_entered" from="Pink" to="." method="_on_pink_body_entered"]
+[connection signal="body_entered" from="Pink" to="Pink" method="_on_body_entered"]
