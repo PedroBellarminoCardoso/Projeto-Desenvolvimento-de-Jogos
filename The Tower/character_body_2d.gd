@@ -14,6 +14,7 @@ extends CharacterBody2D
 # Sprite de hit
 @export var hit_texture: Texture2D
 @export var hit_duration: float = 0.1
+@export var is_flying_debug: bool = false
 
 var can_jump: bool = true
 var bounce_timer: float = 0.0
@@ -30,6 +31,25 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Modo Voo para Debug/Testes
+	if is_flying_debug:
+		var fly_dir = Vector2.ZERO
+		if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP):
+			fly_dir.y -= 1
+		if Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN):
+			fly_dir.y += 1
+		if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT):
+			fly_dir.x -= 1
+		if Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT):
+			fly_dir.x += 1
+		
+		velocity = fly_dir.normalized() * 600.0
+		move_and_slide()
+		if hit_timer > 0:
+			hit_timer = 0.0
+			sprite.texture = normal_texture
+		return
+
 	# Sprite de hit
 	if hit_timer > 0:
 		hit_timer -= delta
@@ -125,3 +145,9 @@ func launch(force: Vector2) -> void:
 	can_jump = false
 	# evita bounce logo após pular
 	launch_timer = launch_lock_time
+
+
+func take_damage(knockback: Vector2) -> void:
+	velocity = knockback
+	mostrar_hit()
+

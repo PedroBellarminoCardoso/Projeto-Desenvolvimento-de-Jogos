@@ -22,7 +22,7 @@ func _draw() -> void:
 	)
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	# 🔥 clique começou
 	if event.is_action_pressed("ui_touch"):
 		touch_down = true

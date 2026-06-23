@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://5toxbru3u5bt" path="res://character_body_2d.gd" id="1_l1n5n"]
 [ext_resource type="FontFile" uid="uid://di4elahb6r1oy" path="res://pixelsix14.ttf" id="1_pk4cg"]
 [ext_resource type="Texture2D" uid="uid://drh72u5jfkr56" path="res://Chão.png" id="3_cp40k"]
-[ext_resource type="Texture2D" uid="uid://l1hm2lpgbo0n" path="res://padrao-sem-emenda-de-parede-de-tijolos-de-pixel-arte-vetorial-design-de-8-bits-para-aplicativos-moveis-de-logotipo-de-adesivos_168129-1389 (1).jpg" id="3_xhl2x"]
+[ext_resource type="Texture2D" uid="uid://l1hm2lpgbo0n" path="res://fundo_tijolos.jpg" id="3_xhl2x"]
 [ext_resource type="Script" uid="uid://cy1x38ktndyvu" path="res://area_2d.gd" id="4_f4u8r"]
 [ext_resource type="Script" uid="uid://bm7ujvmhtnk4w" path="res://label.gd" id="5_cp40k"]
 [ext_resource type="Texture2D" uid="uid://c7usihgjwjbaw" path="res://door_1.png" id="5_cxega"]
@@ -22,6 +22,12 @@
 [ext_resource type="AudioStream" uid="uid://g8dx0b630s6w" path="res://gameplay_music.mp3" id="20_music"]
 [ext_resource type="Texture2D" uid="uid://cynxwq7l3idps" path="res://blue_jump.png" id="21_jump"]
 [ext_resource type="Texture2D" uid="uid://2reyq1n0usn1" path="res://hit.png" id="22_hit"]
+[ext_resource type="Script" path="res://lamina.gd" id="23_lamina"]
+[ext_resource type="Texture2D" path="res://lamina.png" id="24_lamina_tex"]
+[ext_resource type="Script" path="res://vilao.gd" id="25_vilao"]
+[ext_resource type="Texture2D" path="res://vilao.png" id="26_vilao_tex"]
+[ext_resource type="Script" path="res://dev_menu.gd" id="27_dev_menu"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_xhl2x"]
 font = ExtResource("1_pk4cg")
@@ -308,6 +314,23 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msr4x"]
 size = Vector2(23.42456, 37.098694)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lamina"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vilao"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vilao_hurtbox"]
+size = Vector2(55, 55)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tempo_final"]
+font = ExtResource("12_xhl2x")
+font_size = 48
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+
 
 [node name="Node2D" type="Node2D" unique_id=2099606413]
 position = Vector2(4645, 2683)
@@ -931,6 +954,31 @@ shape = SubResource("RectangleShape2D_l0qp6")
 position = Vector2(6, -469)
 shape = SubResource("RectangleShape2D_l0qp6")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Andar1_2"]
+
+[node name="Label" type="Label" parent="Andar1_2/CanvasLayer"]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -11.0
+offset_right = 245.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Andar 2"
+label_settings = SubResource("LabelSettings_rj7db")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("11_l0qp6")
+floor_name = "O SEGUNDO ANDAR"
+
 [node name="Andar1_3" type="Camera2D" parent="." unique_id=1206443005]
 position = Vector2(614, -2166)
 script = ExtResource("6_es5i4")
@@ -947,6 +995,31 @@ shape = SubResource("RectangleShape2D_l0qp6")
 position = Vector2(2, -465)
 shape = SubResource("RectangleShape2D_l0qp6")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Andar1_3"]
+
+[node name="Label" type="Label" parent="Andar1_3/CanvasLayer"]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -11.0
+offset_right = 245.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Andar 3"
+label_settings = SubResource("LabelSettings_rj7db")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("11_l0qp6")
+floor_name = "O TERCEIRO ANDAR"
+
 [node name="Andar1_4" type="Camera2D" parent="." unique_id=1496467268]
 position = Vector2(614, -3126)
 script = ExtResource("6_es5i4")
@@ -958,6 +1031,32 @@ target_camera = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Andar1_4/Area2D" unique_id=1361594438]
 position = Vector2(1, 444)
 shape = SubResource("RectangleShape2D_l0qp6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Andar1_4"]
+
+[node name="Label" type="Label" parent="Andar1_4/CanvasLayer"]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -11.0
+offset_right = 245.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Andar 4"
+label_settings = SubResource("LabelSettings_rj7db")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("11_l0qp6")
+floor_name = "O ULTIMO ANDAR"
+
 
 [node name="Parede 3" type="StaticBody2D" parent="." unique_id=1345034202]
 position = Vector2(-71, -81)
@@ -1119,8 +1218,22 @@ texture = ExtResource("19_tqd42")
 expand_mode = 2
 
 [node name="TempoLabel" type="Label" parent="VictoryScreen" unique_id=1300871497]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ""
+label_settings = SubResource("LabelSettings_tempo_final")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 
 [node name="Pink" type="Area2D" parent="." unique_id=2019238094]
 script = ExtResource("18_tqd42")
@@ -1136,9 +1249,113 @@ position = Vector2(546.5, -3561)
 scale = Vector2(2.9456365, 2.5337834)
 shape = SubResource("RectangleShape2D_msr4x")
 
+[node name="Lamina1" type="Area2D" parent="."]
+position = Vector2(615, -150)
+script = ExtResource("23_lamina")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lamina1"]
+scale = Vector2(1, 1)
+texture = ExtResource("24_lamina_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamina1"]
+shape = SubResource("CircleShape2D_lamina")
+
+[node name="Lamina2" type="Area2D" parent="."]
+position = Vector2(615, -950)
+script = ExtResource("23_lamina")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lamina2"]
+scale = Vector2(1, 1)
+texture = ExtResource("24_lamina_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamina2"]
+shape = SubResource("CircleShape2D_lamina")
+
+[node name="Lamina3" type="Area2D" parent="."]
+position = Vector2(614, -1950)
+script = ExtResource("23_lamina")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lamina3"]
+scale = Vector2(1, 1)
+texture = ExtResource("24_lamina_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamina3"]
+shape = SubResource("CircleShape2D_lamina")
+
+[node name="Lamina4" type="Area2D" parent="."]
+position = Vector2(614, -2900)
+script = ExtResource("23_lamina")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lamina4"]
+scale = Vector2(1, 1)
+texture = ExtResource("24_lamina_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamina4"]
+shape = SubResource("CircleShape2D_lamina")
+
+[node name="Vilao" type="CharacterBody2D" parent="."]
+position = Vector2(550, -3460)
+script = ExtResource("25_vilao")
+
+[node name="Sprite2D" type="Sprite2D" parent="Vilao"]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("26_vilao_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vilao"]
+shape = SubResource("RectangleShape2D_vilao")
+
+[node name="Hurtbox" type="Area2D" parent="Vilao"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vilao/Hurtbox"]
+shape = SubResource("RectangleShape2D_vilao_hurtbox")
+
+[node name="DevMenu" type="CanvasLayer" parent="."]
+script = ExtResource("27_dev_menu")
+
+[node name="Panel" type="Panel" parent="DevMenu"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 260.0
+offset_bottom = 220.0
+self_modulate = Color(0.1, 0.1, 0.1, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DevMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="FlyBtn" type="Button" parent="DevMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Modo Voar: OFF"
+
+[node name="NoclipBtn" type="Button" parent="DevMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sem Colisao: OFF"
+
+[node name="TPBossBtn" type="Button" parent="DevMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Teleportar p/ Chefe"
+
+[node name="TPStartBtn" type="Button" parent="DevMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Teleportar p/ Inicio"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_music")
 autoplay = true
 
 [connection signal="vector_created" from="Player/Area2D" to="Player" method="launch"]
 [connection signal="body_entered" from="Pink" to="Pink" method="_on_body_entered"]
+

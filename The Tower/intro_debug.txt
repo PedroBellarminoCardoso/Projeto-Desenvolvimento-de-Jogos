@@ -17,7 +17,7 @@ Sprite position: (76.99982, -5.000121)
 Sprite global_position: (5176.0, 2823.996)
 Sprite scale: (3.453637, 3.033195)
 Sprite modulate: (1.0, 1.0, 1.0, 1.0)
-Sprite texture: (res://blue_idle.png):<CompressedTexture2D#-9223372001219967528>
+Sprite texture: (res://blue_idle.png):<CompressedTexture2D#-9223371915303843970>
 Sprite texture size: (91.0, 15.0)
 --------------------
 Playing door close...
