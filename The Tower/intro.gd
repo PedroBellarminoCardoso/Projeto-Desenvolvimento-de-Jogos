@@ -76,6 +76,7 @@ func _ready() -> void:
 	log_debug("Playing door close...")
 	door_animation.play("close")
 	log_debug("=== INTRO READY FINISHED ===")
-	# get_tree().quit()
+	if DisplayServer.get_name() == "headless":
+		get_tree().quit()
 
 

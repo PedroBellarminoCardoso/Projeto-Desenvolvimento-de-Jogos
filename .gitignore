@@ -1,0 +1,17 @@
+# Ignore temporary and log files
+*.tmp
+*.log
+*.gd.tmp
+*.txt
+
+# Ignore Godot cache
+.godot/
+
+# Ignore test scripts at the root
+/check_pck.gd
+/check_pck_output.log
+/check_settings.gd
+/test_err.log
+/test_err_exec.log
+/test_run.log
+/test_run_exec.log

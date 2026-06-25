@@ -4,21 +4,3 @@ Door AnimationPlayer animations: ["RESET", "close", "open"]
 Player AnimationPlayer animations: ["RESET", "blue_fade_in", "charge", "idle", "jump"]
 Playing fade_in...
 Waiting for fade_in...
-fade_in finished!
-Playing door open...
-Showing player...
---- PLAYER DEBUG ---
-Player visible: true
-Player position: (454.0, 145.9961)
-Player global_position: (5099.0, 2828.996)
-Player modulate: (1.0, 1.0, 1.0, 1.0)
-Sprite visible: true
-Sprite position: (76.99982, -5.000121)
-Sprite global_position: (5176.0, 2823.996)
-Sprite scale: (3.453637, 3.033195)
-Sprite modulate: (1.0, 1.0, 1.0, 1.0)
-Sprite texture: (res://blue_idle.png):<CompressedTexture2D#-9223371964058433978>
-Sprite texture size: (91.0, 15.0)
---------------------
-Playing door close...
-=== INTRO READY FINISHED ===

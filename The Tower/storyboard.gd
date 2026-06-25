@@ -21,19 +21,33 @@ var slides_texts = [
 	"Agora, voce precisa subir a torre e derrotar o vilao para salvar a sua amada!"
 ]
 
+var can_interact: bool = false
+
 func _ready() -> void:
+	print("=== STORYBOARD READY ===")
 	# Programmatic connections to avoid signal connection issues in tscn
 	next_btn.pressed.connect(_on_next_btn_pressed)
 	skip_btn.pressed.connect(_on_skip_btn_pressed)
 	
-	update_slide()
+	update_slide(false)
 	next_btn.grab_focus()
+	
+	# Delay interaction slightly to prevent input propagation from menu click
+	await get_tree().create_timer(0.3).timeout
+	can_interact = true
 
-func update_slide() -> void:
-	# Fade out content panel
-	var tween = create_tween()
-	tween.tween_property($Panel, "modulate:a", 0.0, 0.25)
-	await tween.finished
+	# Headless automation test
+	if DisplayServer.get_name() == "headless":
+		await get_tree().create_timer(0.5).timeout
+		print("=== AUTOMATED TEST: Skipping Storyboard ===")
+		_on_skip_btn_pressed()
+
+func update_slide(fade_out: bool = true) -> void:
+	if fade_out:
+		# Fade out content panel
+		var tween = create_tween()
+		tween.tween_property($Panel, "modulate:a", 0.0, 0.25)
+		await tween.finished
 	
 	# Update contents
 	texture_rect.texture = slides_textures[current_slide]
@@ -47,18 +61,23 @@ func update_slide() -> void:
 		skip_btn.show()
 		
 	# Fade in content panel
-	tween = create_tween()
-	tween.tween_property($Panel, "modulate:a", 1.0, 0.25)
+	var tween_in = create_tween()
+	tween_in.tween_property($Panel, "modulate:a", 1.0, 0.25)
 
 func _on_next_btn_pressed() -> void:
+	if not can_interact:
+		return
 	if current_slide < slides_textures.size() - 1:
 		current_slide += 1
-		update_slide()
+		update_slide(true)
 	else:
 		start_game()
 
 func _on_skip_btn_pressed() -> void:
+	if not can_interact:
+		return
 	start_game()
 
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://Teste.tscn")
+

@@ -4,8 +4,15 @@ extends Control
 @onready var options_menu = $OptionsPanel
 
 func _ready():
+	print("=== MENU READY ===")
 	main_menu.get_node("PlayButton").grab_focus()
 	options_menu.hide()
+	
+	# Headless automation test
+	if DisplayServer.get_name() == "headless":
+		await get_tree().create_timer(0.5).timeout
+		print("=== AUTOMATED TEST: Clicking Play Button ===")
+		_on_play_button_pressed()
 
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://storyboard.tscn")

@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene load_steps=5 format=3 uid="uid://df5w3e527d7yw"]
 
-[ext_resource type="Script" path="res://storyboard.gd" id="1_story"]
-[ext_resource type="Texture2D" path="res://story_1_pink.jpg" id="2_tex"]
-[ext_resource type="FontFile" path="res://ARCADEPI.TTF" id="3_font"]
-[ext_resource type="FontFile" path="res://pixelsix14.ttf" id="4_font"]
+[ext_resource type="Script" uid="uid://c07im20pgxqwq" path="res://storyboard.gd" id="1_story"]
+[ext_resource type="Texture2D" uid="uid://dbbygjhw0hrqv" path="res://story_1_pink.jpg" id="2_tex"]
+[ext_resource type="FontFile" uid="uid://v5bke8fdlyvg" path="res://ARCADEPI.TTF" id="3_font"]
+[ext_resource type="FontFile" uid="uid://di4elahb6r1oy" path="res://pixelsix14.ttf" id="4_font"]
 
 [node name="Storyboard" type="Control"]
 layout_mode = 3
